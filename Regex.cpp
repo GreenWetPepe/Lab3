@@ -11,10 +11,11 @@ int main()
 	string str;
 	smatch match;
 	
-	const auto r = regex(R"(<a.+href=".+"(.+>|>).+<\/a>)");
+//	const auto r = regex(R"(<a.+href=".+"(.+>|>).+<\/a>)");
+	const auto r = regex(R"(<a.+?href=\"(.+?)\"(.+?>|>).+?<\/a>)");
 	while (getline(f, str))
 	{
 		regex_search(str, match, r);
-		for (int i = 0; i < match.size(); i++) cout << match[i] << "\n";
+		cout << match[1] << "\n\n\n";
 	}
 }
